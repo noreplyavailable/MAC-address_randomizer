@@ -3,4 +3,4 @@ Use this wonderful tool to randomly generate a new MAC-address for yourself. Use
 
 Might have dependencies im not aware of, in any case:
 - Made for and on Kali Linux
-- Make sure ou have the newest version of Bash
+- Make sure you have the newest version of Bash
