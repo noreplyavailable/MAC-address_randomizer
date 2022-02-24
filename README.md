@@ -9,4 +9,6 @@ Has 2 options:
 - -h to print the help screen.
 - -o to output the newly generated MAC-address to a file.
 
-Comes pre-packaged with the $(mac-scan -l) list of vendors inside macdonalds.txt. You could in theory, replace the amcdonalds.txt with your own file aslong as it adheres to the same format
+Comes pre-packaged with the $(mac-scan -l) list of vendors inside macdonalds.txt. If you dont have a macdonalds.txt file inside the same working directory as randoMAC.sh the script will fail. 
+You can generate a new one with `mac-changer -l > macdonalds.txt` make sure to remove the bottom column of wireless vendors!
+You could also in theory, replace the macdonalds.txt with your own file aslong as it adheres to the same format.
