@@ -9,8 +9,8 @@ Has 2 options:
 - -h to print the help screen.
 - -o to output the newly generated MAC-address to a file.
 
-Comes pre-packaged with the $(arp-scan -l) list of vendors inside macdonalds.txt. If you dont have a macdonalds.txt file inside your current working directory the script will fail. 
+Comes pre-packaged with the $(macchanger -l) list of vendors inside macdonalds.txt. If you dont have a macdonalds.txt file inside your current working directory the script will fail. 
 
-You can generate a new one with `arp-scan -l > macdonalds.txt` make sure to remove the bottom column of wireless vendors!
+You can generate a new one with `macchanger -l > macdonalds.txt` make sure to remove the bottom section of "Wireless MACs:"!
 
 You could also in theory, replace the macdonalds.txt with your own file aslong as it adheres to the same format.
