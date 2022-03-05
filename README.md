@@ -19,3 +19,4 @@ You could in theory, replace the macdonalds.txt with your own file aslong as it 
 - XXXX - XX:XX:XX - [OPTIONAL STRING]
 - First part should be the entry number between 0001 - 19010.
 - For the second part put in any MAC address you desire really, make sure it is in the correct format though. (0-9, A-F, a-f are valid options)
+- Thirdly, add literally any text you want, noone will see this apart from you.
