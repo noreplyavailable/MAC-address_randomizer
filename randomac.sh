@@ -18,6 +18,7 @@ printhelp () {
 }
 #
 ough=false
+verbose=false
 #
 
 random () {
@@ -73,9 +74,6 @@ startscan () {
 	local macintosh=$(cat newmac -b | grep 10)
 	local source=$(cat macdonalds.txt | grep $rng -wi)
 
-#	echo "Random manufacturer: "$source
-#	printf "Generated mac address: ["${macintosh:7:9}"]\n"
-#	echo "RNG: $rng"
 
 	echo "" > newmac
 
@@ -84,36 +82,35 @@ startscan () {
 		source=$(cat macdonalds.txt | grep "0$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
 	elif [[ $rng -lt 100 ]] && [[ $rng -gt 9  ]]
 	then
 		source=$(cat macdonalds.txt | grep "00$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
 	elif [[ $rng -lt 10 ]] && [[ $rng -ge 0  ]]
 		then
 		source=$(cat macdonalds.txt | grep "000$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
 	elif [[ $rng -lt 10000 ]] && [[ $rng -gt 999 ]]
 	then
 		echo ${source:6:8} > newmac
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
 	else
 		echo ${source:8:8} > newmac
-#		printf "\nManufacturer address: ["${source:8:8}"]\n"
 	fi
+
+if [[ $verbose == true  ]]; then
+		echo "Random manufacturer: "$source
+		printf "Generated mac address: "${macintosh:7:9}"\n"
+		echo "RNG: $rng"
+		echo
+fi
 
 	echo ${macintosh:7:9} >> newmac
 	(readarray -t ARRAY < newmac; IFS=''; echo "${ARRAY[*]}" >> newmac)
 	happymeal=$(tail newmac -n +3)
 
-	echo "All done"
-	echo
 	output=$(echo $(cat newmac))
-	echo $ough
 	if [[ $ough == true  ]]; then
 		echo $output | cut -d " " -f3 > newmac
 	else
@@ -122,19 +119,24 @@ startscan () {
 
 	echo $output | cut -d " " -f3
 
-}
 
+}
 #Dont forget to change ":hy" if youw ant more options, stupid.
-while getopts ":h:o" option; do
+while getopts ":h:o:v" option; do
 	case $option in
 		o)
 			ough=true
+			startscan
+			exit;;
+		v)
+			verbose=true
 			startscan
 			exit;;
 		:)
 			printhelp
 			exit;;
 		\?)
+			echo $option
 			echo "BIG FAT OPTION ERROR"
 			exit;;	
 	esac
