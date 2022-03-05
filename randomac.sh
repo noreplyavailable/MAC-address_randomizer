@@ -14,7 +14,8 @@ printhelp () {
 	echo
 	echo "USAGE:"
 	echo "* run ./randomac.sh and you will get a newly generated MAC address from a long list of vendors (macdonalds.txt)"
-	echo "* To output to a file run the -o flag"
+	echo "* -o to output to a file."
+	echo "* -v verbose mode, show certain values."
 }
 #
 ough=false
