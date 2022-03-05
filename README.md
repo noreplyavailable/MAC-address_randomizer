@@ -17,4 +17,5 @@ You can generate a new one with `macchanger -l > macdonalds.txt` make sure to re
 You could in theory, replace the macdonalds.txt with your own file aslong as it adheres to the same format:
 
 - XXXX - XX:XX:XX - [OPTIONAL STRING]
-- First part should be the entry number. For the second part put in any MAC address you desire really, make sure it is in the correct format though (0-9, A-F, a-f are valid options)
+- First part should be the entry number between 0001 - 19010
+- For the second part put in any MAC address you desire really, make sure it is in the correct format though (0-9, A-F, a-f are valid options)
