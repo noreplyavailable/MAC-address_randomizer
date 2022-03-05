@@ -5,7 +5,7 @@ Might have dependencies im not aware of, in any case:
 - Made for and on Kali Linux.
 - Make sure you have the newest version of Bash.
 
-Has 2 options:
+Has options:
 - -h to print the help screen.
 - -o to output the newly generated MAC-address to a file.
 - -v option for a little bit of verbosity. (needs expanding)
