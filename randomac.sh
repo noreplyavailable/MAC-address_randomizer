@@ -18,10 +18,7 @@ printhelp () {
 }
 #
 ough=false
-<<<<<<< HEAD
 verbose=false
-=======
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 #
 
 random () {
@@ -77,12 +74,6 @@ startscan () {
 	local macintosh=$(cat newmac -b | grep 10)
 	local source=$(cat macdonalds.txt | grep $rng -wi)
 
-<<<<<<< HEAD
-=======
-#	echo "Random manufacturer: "$source
-#	printf "Generated mac address: ["${macintosh:7:9}"]\n"
-#	echo "RNG: $rng"
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 
 	echo "" > newmac
 
@@ -91,25 +82,16 @@ startscan () {
 		source=$(cat macdonalds.txt | grep "0$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-<<<<<<< HEAD
-=======
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 	elif [[ $rng -lt 100 ]] && [[ $rng -gt 9  ]]
 	then
 		source=$(cat macdonalds.txt | grep "00$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-<<<<<<< HEAD
-=======
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 	elif [[ $rng -lt 10 ]] && [[ $rng -ge 0  ]]
 		then
 		source=$(cat macdonalds.txt | grep "000$rng" -wi)
 		echo $source
 		echo "${source:7:8}" > newmac
-<<<<<<< HEAD
 	elif [[ $rng -lt 10000 ]] && [[ $rng -gt 999 ]]
 	then
 		echo ${source:6:8} > newmac
@@ -124,30 +106,11 @@ if [[ $verbose == true  ]]; then
 		echo
 fi
 
-=======
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
-	elif [[ $rng -lt 10000 ]] && [[ $rng -gt 999 ]]
-	then
-		echo ${source:6:8} > newmac
-#		printf "\nManufacturer address: ["${source:7:8}"]\n"
-	else
-		echo ${source:8:8} > newmac
-#		printf "\nManufacturer address: ["${source:8:8}"]\n"
-	fi
-
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 	echo ${macintosh:7:9} >> newmac
 	(readarray -t ARRAY < newmac; IFS=''; echo "${ARRAY[*]}" >> newmac)
 	happymeal=$(tail newmac -n +3)
 
-<<<<<<< HEAD
 	output=$(echo $(cat newmac))
-=======
-	echo "All done"
-	echo
-	output=$(echo $(cat newmac))
-	echo $ough
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 	if [[ $ough == true  ]]; then
 		echo $output | cut -d " " -f3 > newmac
 	else
@@ -156,37 +119,24 @@ fi
 
 	echo $output | cut -d " " -f3
 
-<<<<<<< HEAD
 
 }
 #Dont forget to change ":hy" if youw ant more options, stupid.
 while getopts ":h:o:v" option; do
-=======
-}
-
-#Dont forget to change ":hy" if youw ant more options, stupid.
-while getopts ":h:o" option; do
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 	case $option in
 		o)
 			ough=true
 			startscan
 			exit;;
-<<<<<<< HEAD
 		v)
 			verbose=true
 			startscan
 			exit;;
-=======
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 		:)
 			printhelp
 			exit;;
 		\?)
-<<<<<<< HEAD
 			echo $option
-=======
->>>>>>> aadf6d6123ff23a28540bc925e533f9af16aafe8
 			echo "BIG FAT OPTION ERROR"
 			exit;;	
 	esac
